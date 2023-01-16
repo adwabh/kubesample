@@ -5,6 +5,7 @@ plugins {
 	id("io.spring.dependency-management") version "1.1.0"
 	kotlin("jvm") version "1.7.22"
 	kotlin("plugin.spring") version "1.7.22"
+	application
 }
 
 group = "com.example"
@@ -13,6 +14,10 @@ java.sourceCompatibility = JavaVersion.VERSION_17
 
 repositories {
 	mavenCentral()
+}
+
+application {
+	mainClass.set("com.example.kubesample.KubesampleApplicationKt")
 }
 
 dependencies {
@@ -27,6 +32,12 @@ tasks.withType<KotlinCompile> {
 	kotlinOptions {
 		freeCompilerArgs = listOf("-Xjsr305=strict")
 		jvmTarget = "17"
+	}
+}
+
+tasks.withType<Jar> {
+	manifest {
+		attributes["Main-Class"] = "com.example.kubesample.KubesampleApplication"
 	}
 }
 
