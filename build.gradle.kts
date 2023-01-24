@@ -16,6 +16,14 @@ repositories {
 	mavenCentral()
 }
 
+extra["springCloudVersion"] = "2021.0.2"
+
+dependencyManagement {
+	imports {
+		mavenBom("org.springframework.cloud:spring-cloud-dependencies:${property("springCloudVersion")}")
+	}
+}
+
 application {
 	mainClass.set("com.example.kubesample.KubesampleApplicationKt")
 }
@@ -32,12 +40,6 @@ tasks.withType<KotlinCompile> {
 	kotlinOptions {
 		freeCompilerArgs = listOf("-Xjsr305=strict")
 		jvmTarget = "17"
-	}
-}
-
-tasks.withType<Jar> {
-	manifest {
-		attributes["Main-Class"] = "com.example.kubesample.KubesampleApplication"
 	}
 }
 
