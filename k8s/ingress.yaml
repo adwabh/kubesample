@@ -16,4 +16,4 @@ spec:
               service:
                 name: kubesample-service
                 port:
-                  number: 80
+                  number: 9090
