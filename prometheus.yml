@@ -1,0 +1,21 @@
+# my global config
+global:
+  # how frequently to scrape targets. default is 1 minute
+  scrape_interval: 10s
+
+scrape_configs:
+  # the job name is assigned to scraped metrics by default
+  - job_name: spring_prometheus
+    # the HTTP resource path on which to fetch metrics from targets
+    metrics_path: /actuator/prometheus
+    # how frequently to scrape targets from this job
+    scrape_interval: 5s
+    # a static_config allows specifying a list of targets and a common label set for them
+    static_configs:
+      # HOST_IP is the host_ip_address. make sure to replace it with the IP address of your machine
+      # where spring boot application is running. Note that localhost won't work here as we will be
+      # connecting to the host machine from the docker container. you must specify the network IP address.
+      # to check system IP you can run ipconfig or ifconfig in your terminal, depending on your os.
+      # 9091 represents the port number on which the actuator endpoint is exposed. refer application.properties for info.
+      - targets:
+          - 'localhost:10097'
