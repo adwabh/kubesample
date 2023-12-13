@@ -1,0 +1,6 @@
+global:
+
+alert:
+
+# The default HTTP client configuration
+http_config:

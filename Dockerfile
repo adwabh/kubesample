@@ -1,8 +1,9 @@
-FROM openjdk:17-jdk-alpine
+FROM amazoncorretto:21.0.1-al2-generic
 ARG JAR_FILE=target/*.jar
 COPY ${JAR_FILE} app.jar
 
-EXPOSE 8080
+EXPOSE 80
+EXPOSE 11097
 
 CMD java \
   -XX:MaxRAMPercentage=60 \
