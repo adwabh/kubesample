@@ -35,6 +35,9 @@ dependencies {
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
+	implementation("io.prometheus:prometheus-metrics-core:1.0.0")
+	implementation("io.prometheus:prometheus-metrics-instrumentation-jvm:1.0.0")
+	implementation("io.prometheus:prometheus-metrics-exporter-httpserver:1.0.0")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
 

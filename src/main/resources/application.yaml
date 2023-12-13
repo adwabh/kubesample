@@ -1,6 +1,6 @@
 management:
   server:
-    port: 10097
+    port: 11097
   endpoints:
     web:
       exposure:

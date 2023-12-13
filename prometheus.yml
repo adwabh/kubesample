@@ -18,4 +18,4 @@ scrape_configs:
       # to check system IP you can run ipconfig or ifconfig in your terminal, depending on your os.
       # 9091 represents the port number on which the actuator endpoint is exposed. refer application.properties for info.
       - targets:
-          - 'localhost:10097'
+          - 'dockerize-kubesample-1:11097'

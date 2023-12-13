@@ -1,5 +1,7 @@
 package com.example.kubesample
 
+import io.prometheus.metrics.expositionformats.generated.com_google_protobuf_3_21_7.Metrics.Counter
+import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.RestController
 import org.springframework.web.bind.annotation.GetMapping
 
@@ -9,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping
 class HelloController {
     @GetMapping("/hello")
     fun hello() : Response<String> {
+        HelloMetric.increment()
         return Response.ofSuccess(data = "Hello")
     }
 }

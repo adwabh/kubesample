@@ -1,5 +1,10 @@
 version: '3.3'
 services:
+  kubesample:
+    image: 'localhost:5000/avabhyankar/ksample-prometheus:latest'
+    ports:
+      - '11097:11097'
+      - '10960:80'
   prometheus:
     image: 'prom/prometheus:v2.14.0'
     ports:
@@ -7,3 +12,7 @@ services:
     command: '--config.file=/etc/prometheus/config.yml --web.listen-address=:8097'
     volumes:
       - './prometheus.yml:/etc/prometheus/config.yml'
+  grafana:
+    image: 'grafana/grafana:10.1.5'
+    ports:
+      - '3000:3000'
